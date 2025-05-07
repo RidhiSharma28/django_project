@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap" rel="stylesheet">
+    <title>BookNest - Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .bg-purple {
+            background-color: #6f42c1 !important;
+        }
+
+        .complete-page {
+            background: url('/static/images/backgrounds/HomePage-ProfileBg.jpg') center/cover no-repeat;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        
+
+        .hero-section {
+            color: black;
+            padding: 100px 0;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .card img {
+            height: 300px;
+            object-fit: cover;
+        }
+
+        body {
+            background-color: purple !important;
+        }
+
+        .navbar-brand {
+            font-family: "Dancing Script", cursive;
+            font-weight: 700;
+            font-size: 2rem;
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: #6f42c1 !important; /* Purple background */
+            color: white !important; /* White text */
+            border-color: #6f42c1 !important; /* Purple border */
+            transition: all 0.3s ease-in-out; /* Smooth transition */
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg py-2 bg-purple navbar-dark">
+        <div class="container">
+            <a class="navbar-brand fs-1 fw-bold" href="/">BookNest</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link fs-5" href="/">My Dashboard</a></li>
+                    <li class="nav-item"><a class="nav-link fs-5" href="/book_reading/">Digital Ink</a></li>
+                    <li class="nav-item"><a class="nav-link fs-5" href="/signup">Sign Up</a></li>
+                    <li class="nav-item"><a class="nav-link fs-5" href="/login">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="complete-page">
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1>Discover Your Next Favorite Book</h1>
+                <p>Explore a world of stories, reviews, and more.</p>
+                <input type="text" id="search" class="form-control w-50 d-inline" placeholder="Search for books...">
+                <button class="btn btn-success ms-2 bg-purple text-white btn-outline-secondary" onclick="searchBooks()">Search</button>
+            </div>
+        </section>
+
+        <!-- Featured Books -->
+        <section class="container my-5">
+            <h2 class="text-center mb-4">Featured Books</h2>
+            <div id="book-list" class="row g-4 justify-content-center">
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="container my-5">
+            <h2 class="text-center mb-4">Explore by Category</h2>
+            <div class="row text-center">
+                <div class="col-md-3"><button class="btn bg-white btn-outline-secondary">Fiction</button></div>
+                <div class="col-md-3"><button class="btn bg-white btn-outline-secondary">Mystery</button></div>
+                <div class="col-md-3"><button class="btn bg-white btn-outline-secondary">Fantasy</button></div>
+                <div class="col-md-3"><button class="btn bg-white btn-outline-secondary">Non-Fiction</button></div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-purple text-white text-center py-2">
+        <p>&copy; 2025 BookNest. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const books = [
+            {
+                title: 'The Great Gatsby',
+                author: 'F. Scott Fitzgerald',
+                cover: '/static/images/covers/TheGreatGatsby.jpeg'
+            },
+            {
+                title: 'To Kill a Mockingbird',
+                author: 'Harper Lee',
+                cover: '/static/images/covers/ToKillAMockingbird.jpg'
+            },
+            {
+                title: '1984',
+                author: 'George Orwell',
+                cover: '/static/images/covers/1984.jpeg'
+            }
+        ];
+
+        function displayBooks(bookArray) {
+            const bookList = document.getElementById('book-list');
+            bookList.innerHTML = '';
+            bookArray.forEach(book => {
+                const bookItem = `
+                    <div class="col-md-4">
+                        <div class="card shadow-sm">
+                            <img src="${book.cover}" class="card-img-top" alt="${book.title}">
+                            <div class="card-body">
+                                <h5 class="card-title">${book.title}</h5>
+                                <p class="card-text">by ${book.author}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                bookList.innerHTML += bookItem;
+            });
+        }
+
+        function searchBooks() {
+            const query = document.getElementById('search').value.toLowerCase();
+            const filteredBooks = books.filter(book =>
+                book.title.toLowerCase().includes(query) ||
+                book.author.toLowerCase().includes(query)
+            );
+            displayBooks(filteredBooks);
+        }
+
+        window.onload = () => displayBooks(books);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

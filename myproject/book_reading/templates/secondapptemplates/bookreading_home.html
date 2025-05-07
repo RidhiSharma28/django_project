@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+
+{% block title %}Digital Ink - Book Reading Platform{% endblock %}
+
+{% block extra_css %}
+<style>
+    .complete-page {
+        background: url('/static/firstappstatic/images/backgrounds/HomePage-ProfileBg.jpg') center/cover fixed no-repeat;
+        min-height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+
+    .section-books {
+        padding: 60px 0;
+        min-height: 100vh;
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-books .container {
+        padding-top: 40px;
+    }
+
+    h2 {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #6f42c1;
+        margin-bottom: 40px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    .box-container1, .box-container2 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    .it {
+        text-align: center;
+    }
+
+    .it img {
+        width: 250px;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 10px;
+        border: 2px solid white;
+        transition: transform 0.3s ease;
+    }
+
+    .it img:hover {
+        transform: scale(1.05);
+    }
+
+    .it a {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.2rem;
+        color: #6f42c1;
+        text-decoration: none;
+        font-family: math;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .it a:hover {
+        text-decoration: underline;
+        color: #6f42c1;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="complete-page">
+    <section class="section-books" id="section-books">
+        <div class="container">
+            <h2>DIGITAL INK</h2>
+
+            <div class="box-container1">
+                <div class="it">
+                    <a href="1984.html">
+                        <img src="/static/secondappstatic/images/covers/1984.jpeg" alt="1984 img">
+                    </a>
+                    <a href="1984.html">1. 1984</a>
+                </div>
+                <div class="it">
+                    <a href="TheGreatGatsby.html">
+                        <img src="/static/secondappstatic/images/covers/TheGreatGatsby.jpeg" alt="The Great Gatsby img">
+                    </a>
+                    <a href="TheGreatGatsby.html">2. The Great Gatsby</a>
+                </div>
+                <div class="it">
+                    <a href="FamilyBusiness.html">
+                        <img src="/static/secondappstatic/images/covers/FamilyBusiness.jpg" alt="Family Business img">
+                    </a>
+                    <a href="FamilyBusiness.html">3. Family Business</a>
+                </div>
+                <div class="it">
+                    <a href="LoveAtWildHarbour.html">
+                        <img src="/static/secondappstatic/images/covers/LoveAtWildHarbour.jpg" alt="Love at Wild Harbor img">
+                    </a>
+                    <a href="LoveAtWildHarbour.html">4. Love at Wild Harbor</a>
+                </div>
+            </div>
+
+            <div class="box-container2">
+                <div class="it">
+                    <a href="ToKillAMockingbird.html">
+                        <img src="/static/secondappstatic/images/covers/ToKillAMockingbird.jpg" alt="To Kill A Mockingbird img">
+                    </a>
+                    <a href="ToKillAMockingbird.html">5. To Kill A Mockingbird</a>
+                </div>
+                <div class="it">
+                    <a href="StoneRaidersReturn.html">
+                        <img src="/static/secondappstatic/images/covers/StoneRaidersReturn.jpg" alt="Stone Raiders' Return">
+                    </a>
+                    <a href="StoneRaidersReturn.html">6. Stone Raiders' Return</a>
+                </div>
+                <div class="it">
+                    <a href="TheBicycleBookClub.html">
+                        <img src="/static/secondappstatic/images/covers/TheBicycleBookClub.jpg" alt="The Bicycle Book Club">
+                    </a>
+                    <a href="TheBicycleBookClub.html">7. The Bicycle Book Club</a>
+                </div>
+                <div class="it">
+                    <a href="TheKingsStone.html">
+                        <img src="/static/secondappstatic/images/covers/TheKingsStone.jpg" alt="The King's Stone">
+                    </a>
+                    <a href="TheKingsStone.html">8. The King's Stone</a>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}
